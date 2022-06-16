@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 2
+  replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: rbmjbae/argrocd-test:latest
+        image: rbmjbae/argrocd-test:4.0
         ports:
         - containerPort: 8080
