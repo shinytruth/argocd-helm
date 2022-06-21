@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp-service2
+  name: rbm-order-svc
 spec:
   selector:
-    app: myapp2
+    app: rbm-order-depl
   ports:
   - port: 8080
     protocol: TCP

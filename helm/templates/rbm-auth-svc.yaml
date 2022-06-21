@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp-service
+  name: rbm-auth-svc
 spec:
   selector:
-    app: myapp
+    app: rbm-auth-depl
   ports:
   - port: 8080
     protocol: TCP

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp2
+  name: rbm-auth-depl
 spec:
   selector:
     matchLabels:
-      app: myapp2
+      app: rbm-auth-depl
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
-        app: myapp2
+        app: rbm-auth-depl
     spec:
       containers:
-      - name: myapp2
+      - name: rbm-auth-depl
         image: rbmjbae/argrocd-test:4.0
         ports:
         - containerPort: 8080

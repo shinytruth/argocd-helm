@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: rbm-order-depl
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: rbm-order-depl
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
-        app: myapp
+        app: rbm-order-depl
     spec:
       containers:
-      - name: myapp
+      - name: rbm-order-depl
         image: rbmjbae/argrocd-test:4.0
         ports:
         - containerPort: 8080
