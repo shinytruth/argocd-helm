@@ -1,19 +1,20 @@
+ {{- $env := .Values.env -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rbm-auth-depl
+  name: rbm-auth-depl-{{ $env }}
 spec:
   selector:
     matchLabels:
-      app: rbm-auth-depl
+      app: rbm-auth-depl-{{ $env }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
-        app: rbm-auth-depl
+        app: rbm-auth-depl-{{ $env }}
     spec:
       containers:
-      - name: rbm-auth-depl
+      - name: rbm-auth-depl-{{ $env }}
         image: rbmjbae/argrocd-test:4.0
         ports:
         - containerPort: 8080

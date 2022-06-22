@@ -1,10 +1,11 @@
+ {{- $env := .Values.env -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: rbm-auth-svc
+  name: rbm-auth-svc-{{ $env }}
 spec:
   selector:
-    app: rbm-auth-depl
+    app: rbm-auth-depl-{{ $env }}
   ports:
   - port: 8080
     protocol: TCP

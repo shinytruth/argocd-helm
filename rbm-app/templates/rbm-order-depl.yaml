@@ -1,19 +1,20 @@
+ {{- $env := .Values.env -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rbm-order-depl
+  name: rbm-order-depl-{{ $env }}
 spec:
   selector:
     matchLabels:
-      app: rbm-order-depl
+      app: rbm-order-depl-{{ $env }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
-        app: rbm-order-depl
+        app: rbm-order-depl-{{ $env }}
     spec:
       containers:
-      - name: rbm-order-depl
+      - name: rbm-order-depl-{{ $env }}
         image: rbmjbae/argrocd-test:4.0
         ports:
         - containerPort: 8080

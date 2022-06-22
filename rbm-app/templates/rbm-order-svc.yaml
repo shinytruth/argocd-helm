@@ -1,10 +1,11 @@
+ {{- $env := .Values.env -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: rbm-order-svc
+  name: rbm-order-svc-{{ $env }}
 spec:
   selector:
-    app: rbm-order-depl
+    app: rbm-order-depl-{{ $env }}
   ports:
   - port: 8080
     protocol: TCP
