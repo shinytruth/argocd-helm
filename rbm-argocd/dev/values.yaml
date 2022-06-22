@@ -3,5 +3,6 @@
 
 applicationName: dev-rbm-argo-application
 branch: develop
+namespace: rbm-dev
 valueFile: dev/values.yaml
 

@@ -3,4 +3,5 @@
 
 applicationName: stg-rbm-argo-application
 branch: stage
+namespace: rbm-stg
 valueFile: stg/values.yaml

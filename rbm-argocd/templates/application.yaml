@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: git@gitlab.com:mjbae/argocd-config-test.git
+    repoURL: https://gitlab.com/mjbae/argocd-config-test.git
     targetRevision: {{ .Values.branch }}
     path: rbm-app
     helm:
@@ -15,7 +15,7 @@ spec:
       - {{ .Values.valueFile }}
   destination: 
     server: https://kubernetes.default.svc
-    namespace: rbm
+    namespace: {{ .Values.namespace }}
 
   syncPolicy:
     syncOptions:

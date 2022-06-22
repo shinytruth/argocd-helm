@@ -3,4 +3,5 @@
 
 applicationName: prd-rbm-argo-application
 branch: main
+namespace: rbm-prd
 valueFile: prd/values.yaml
