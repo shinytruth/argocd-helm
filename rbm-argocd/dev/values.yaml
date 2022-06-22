@@ -1,0 +1,7 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+applicationName: dev-rbm-argo-application
+branch: develop
+valueFile: dev/values.yaml
+

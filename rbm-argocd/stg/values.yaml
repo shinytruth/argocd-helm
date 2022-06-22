@@ -1,0 +1,6 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+applicationName: stg-rbm-argo-application
+branch: stage
+valueFile: stg/values.yaml
