@@ -3,3 +3,5 @@
 
 env: prd
 replicaCount: 3
+orderImage: rbmjbae/rbm-order:dev-0.0.1
+authImage: rbmjbae/rbm-auth:dev-0.0.1

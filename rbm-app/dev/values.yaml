@@ -3,3 +3,5 @@
 
 env: dev
 replicaCount: 2
+orderImage: rbmjbae/rbm-order:dev-0.0.1
+authImage: rbmjbae/rbm-auth:dev-0.0.1

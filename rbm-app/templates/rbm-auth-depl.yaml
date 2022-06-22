@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: rbm-auth-depl-{{ $env }}
-        image: rbmjbae/argrocd-test:4.0
+        image: {{ .Values.authImage }}
         ports:
         - containerPort: 8080
