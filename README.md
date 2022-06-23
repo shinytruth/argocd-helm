@@ -1,6 +1,6 @@
-# Runbyme Argo CD with Helm
+# Argo CD with Helm
 
-- mjbae@runbyme.team
+- shinytruth.dev@gmail.com
 - 2022.06.22
 
 로컬에 쉽게 설치 가능한 경량 쿠버네티스 클러스터인 "Minikube" 상에서 테스트 된 버전입니다.
@@ -27,13 +27,13 @@
   ```
   minikube start
   ```
-- argo CD 배포
+- Argo CD 배포
   ```
   kubectl create namespace argocd
   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   ```
 
-## RBM argoCD 어플리케이션 배포
+## RBM Argo CD 어플리케이션 배포
 
 ### 배포
 
@@ -47,6 +47,20 @@
  ./uninstall.sh dev|stg|prd
   ```
 
+### Argo CD 대시보드 접속
+
+  ```
+# Argo CD 서비스 포트포워드
+kubectl port-forward -n argocd svc/argocd-server 8080:443
+
+# 'runbyme' 로 비밀번호 설정 (base64 인코딩 문자열)
+kubectl -n argocd patch secret argocd-secret \                        
+  -p '{"stringData": {
+    "admin.password": "$2a$10$5gJ82qSF2p5TwCX1ICVAyeevY94YZaf6/yWLctmeE74upIs7bk/ly"
+  }}'
+  
+# localhost:8080으로 접속하여 로그인 (id:admin/pw:runbyme)  
+  ```
 
 ## 파일 구조 설명
 
@@ -67,7 +81,7 @@
 │       ├── rbm-auth-svc.yaml
 │       ├── rbm-order-depl.yaml
 │       └── rbm-order-svc.yaml
-├── rbm-argocd  # 서비스 배포를 관리해주는 argo CD 배포에 관한 Helm 차트
+├── rbm-argocd  # 서비스 배포를 관리해주는 Argo CD 배포에 관한 Helm 차트
 │   ├── Chart.yaml
 │   ├── dev
 │   │   └── values.yaml
@@ -78,7 +92,7 @@
 │   └── templates
 │       └── application.yaml  # source git 레포지토리와 target 클러스터 주소거 명시되는 파일
 └── reference       
-    ├── argocd-example.yaml  # argo CD application.yml을 만들 때 참고함
+    ├── argocd-example.yaml  # Argo CD application.yml을 만들 때 참고함
     └── scripts.txt
 ```
 
